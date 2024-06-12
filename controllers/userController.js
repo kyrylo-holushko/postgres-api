@@ -55,7 +55,7 @@ exports.login = (req, res) => {
             if(result instanceof Error)
                 throw result;
             else
-                compareAndEncrypt(password, result, res);
+                compareAndEncrypt(String(password), result, res);
         }).catch(e=>{
             res.status(500).json({ message: e.message });
         });
@@ -65,7 +65,7 @@ exports.login = (req, res) => {
             if(result instanceof Error)
                 throw result;
             else
-                compareAndEncrypt(password, result, res);
+                compareAndEncrypt(String(password), result, res);
         }).catch(e=>{
             res.status(500).json({ message: e.message });
         });
